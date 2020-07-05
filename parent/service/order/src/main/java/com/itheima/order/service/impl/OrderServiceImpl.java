@@ -28,7 +28,6 @@ public class OrderServiceImpl implements OrderService {
 
 
     /**
-     * @param username
      * @description: //TODO 根据⽤户的username查询数据库的订单
      * @return: java.util.List<com.itheima.pojo.Order>
      * @author: KyleSun swy0907163@163.com
