@@ -6,6 +6,7 @@ import lombok.Setter;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * user实体类
@@ -16,44 +17,47 @@ import java.io.Serializable;
 public class User implements Serializable {
 
     @Id
-    private String username;//用户名
+//    @Column(name="user_name")
+    private String username;
 
-    private String password;//密码，加密存储
+    //    @Column
+    private String password;
 
-    private String phone;//注册手机号
+    private String phone;
 
-    private String email;//注册邮箱
+    private String email;
 
-    private java.util.Date created;//创建时间
+    private Date created;
 
-    private java.util.Date updated;//修改时间
+    private Date updated;
 
-    private String sourceType;//会员来源：1:PC，2：H5，3：Android，4：IOS
+    private String sourceType;
 
-    private String nickName;//昵称
+    private String nickName;
 
-    private String name;//真实姓名
+    private String name;
 
-    private String status;//使用状态（1正常 0非正常）
+    private String status;
 
-    private String headPic;//头像地址
+    private String headPic;
 
-    private String qq;//QQ号码
+    private String qq;
 
-    private String isMobileCheck;//手机是否验证 （0否  1是）
+    private String isMobileCheck;
 
-    private String isEmailCheck;//邮箱是否检测（0否  1是）
+    private String isEmailCheck;
 
-    private String sex;//性别，1男，0女
+    private String sex;
 
-    private Integer userLevel;//会员等级
+    private Integer userLevel;
 
-    private Integer points;//积分
+    private Integer points;
 
-    private Integer experienceValue;//经验值
+    private Integer experienceValue;
 
-    private java.util.Date birthday;//出生年月日
+    private Date birthday;
 
-    private java.util.Date lastLoginTime;//最后登录时间
+    private Date lastLoginTime;
 
+    private static final long serialVersionUID = 1L;
 }
