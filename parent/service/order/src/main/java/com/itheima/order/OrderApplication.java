@@ -11,7 +11,6 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  **/
 @SpringBootApplication
 @EnableDiscoveryClient // 包含了开启熔断@EnableCircuitBreaker和@EnableEurekaClient
-//@EnableFeignClients(basePackages = "com.itheima.order.feign")
 @MapperScan(basePackages = "com.itheima.order.mapper")
 public class OrderApplication {
 

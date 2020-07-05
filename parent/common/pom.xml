@@ -19,7 +19,7 @@
             <version>1.2.51</version>
         </dependency>
 
-
+        <!--JPA-->
         <dependency>
             <groupId>javax.persistence</groupId>
             <artifactId>persistence-api</artifactId>
