@@ -9,6 +9,12 @@ spring:
       server:
         git:
           uri: https://github.com/KyleSun96/config-test.git  #github放配置文件仓库的克隆url
+  # bus添加1: 配置rabbitmq信息；如果是都与默认值一致则不需要配置
+  rabbitmq:
+    host: 192.168.200.128
+    port: 5672
+    username: guest
+    password: guest
 
 eureka:
   instance:
@@ -16,3 +22,11 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka # eureka服务端地址，将来客户端使用该地址和eureka进行通信
+
+# bus添加2: 暴露总线
+management:
+  endpoints:
+    web:
+      exposure:
+        # 暴露触发消息总线的地址
+        include: bus-refresh

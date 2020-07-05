@@ -6,6 +6,7 @@ import com.itheima.response.UserOrderVO;
 import com.itheima.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +20,7 @@ import java.util.Map;
  **/
 @RestController
 @RequestMapping("/user")
+@RefreshScope  // bus刷新本地环境
 public class UserController {
 
     @Autowired
