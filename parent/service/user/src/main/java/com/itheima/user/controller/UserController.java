@@ -5,6 +5,7 @@ import com.itheima.pojo.User;
 import com.itheima.response.UserOrderVO;
 import com.itheima.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +24,9 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Value("${test.testStr}")
+    private String testStr;
+
     /**
      * @description: //TODO 根据主键查询用户
      * @param: [username]
@@ -31,6 +35,8 @@ public class UserController {
      */
     @GetMapping("/findUserById/{username}")
     public Result<User> findUser(@PathVariable("username") String username) {
+
+        System.out.println("从git仓库获取配置文件中更改的信息：" + testStr);
         User user = userService.findUserById(username);
         return new Result<User>(true, "查询成功", user);
     }
