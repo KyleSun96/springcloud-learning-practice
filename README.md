@@ -15,3 +15,5 @@ SpringCloud整合练习
 7. SpringCloud Bus
 
 其中，master分支为第一次练习，2nd为第二次练习，3rd为第三次练习。
+
+配置中心仓库为：https://github.com/KyleSun96/config-test
