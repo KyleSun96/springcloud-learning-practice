@@ -53,6 +53,9 @@ public class OrderServiceImpl implements OrderService {
             orderList = new ArrayList<>();
         }
 
+        // 测试降级异常
+        // int i = 1/0;
+
         return orderList;
     }
 }
