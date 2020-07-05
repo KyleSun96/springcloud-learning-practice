@@ -30,9 +30,9 @@ public class UserController {
      * @author: KyleSun swy0907163@163.com
      */
     @GetMapping("/findUserById/{username}")
-    public Result findUser(@PathVariable("username") String username) {
+    public Result<User> findUser(@PathVariable("username") String username) {
         User user = userService.findUserById(username);
-        return new Result(true, "查询成功", user);
+        return new Result<User>(true, "查询成功", user);
     }
 
 
@@ -43,9 +43,9 @@ public class UserController {
      * @author: KyleSun swy0907163@163.com
      */
     @GetMapping("/findOrderByUserId/{username}")
-    public Result findOrderByUserId(@PathVariable("username") String username) {
+    public Result<UserOrderVO> findOrderByUserId(@PathVariable("username") String username) {
         UserOrderVO userOrderVO = userService.findOrderByUserId(username);
-        return new Result(true, "查询成功", userOrderVO);
+        return new Result<>(true, "查询成功", userOrderVO);
     }
 
 }

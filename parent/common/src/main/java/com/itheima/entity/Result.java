@@ -14,13 +14,13 @@ import java.io.Serializable;
 @Getter
 @Setter
 @ToString
-public class Result implements Serializable {
+public class Result<T> implements Serializable {
 
     private boolean flag;   //执行结果，true为执行成功 false为执行失败
 
     private String message; //返回结果信息，主要用于页面提示信息
 
-    private Object data;    //返回数据
+    private T data;    //返回数据
 
     public Result() {
     }
@@ -31,7 +31,7 @@ public class Result implements Serializable {
         this.message = message;
     }
 
-    public Result(boolean flag, String message, Object data) {
+    public Result(boolean flag, String message, T data) {
         this.flag = flag;
         this.message = message;
         this.data = data;

@@ -1,4 +1,4 @@
-package com.itheima.user.fallback;
+package com.itheima.user.client.fallback;
 
 import com.itheima.entity.Result;
 import com.itheima.pojo.Order;
@@ -19,7 +19,7 @@ import java.util.List;
 public class OrderFallback implements OrderClient {
 
     @Override
-    public Result findOrdersByUsername(String username) {
+    public Result<List<Order>> findOrdersByUsername(String username) {
 
         log.error("OrderFallback findOrdersByUsername is effective for Hystrix username:{}", username);
 
@@ -28,6 +28,6 @@ public class OrderFallback implements OrderClient {
         order.setId("-1");
         list.add(order);
 
-        return new Result(true, "order服务降级", list);
+        return new Result<>(true, "order服务降级", list);
     }
 }

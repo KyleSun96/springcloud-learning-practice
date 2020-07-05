@@ -30,12 +30,9 @@ public class OrderController {
      * @author: KyleSun swy0907163@163.com
      */
     @GetMapping("/findOrdersByUsername/{username}")
-    public Result findOrdersByUsername(@PathVariable(value = "username") String username) {
-
+    public Result<List<Order>> findOrdersByUsername(@PathVariable(value = "username") String username) {
         List<Order> orderList = orderService.findOrderByUsername(username);
-
-        return new Result(true, "查询成功", orderList);
-
+        return new Result<>(true, "查询成功", orderList);
     }
 
 }
