@@ -13,7 +13,6 @@
         <module>config</module>
         <module>eureka</module>
         <module>gateway</module>
-        <module>common_db</module>
         <module>service</module>
     </modules>
 
