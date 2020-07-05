@@ -2,6 +2,7 @@ package com.itheima.user.controller;
 
 import com.itheima.entity.Result;
 import com.itheima.pojo.User;
+import com.itheima.response.UserOrderVO;
 import com.itheima.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -43,8 +44,8 @@ public class UserController {
      */
     @GetMapping("/findOrderByUserId/{username}")
     public Result findOrderByUserId(@PathVariable("username") String username) {
-        Map map = userService.findOrderByUserId(username);
-        return new Result(true, "查询成功", map);
+        UserOrderVO userOrderVO = userService.findOrderByUserId(username);
+        return new Result(true, "查询成功", userOrderVO);
     }
 
 }

@@ -1,6 +1,7 @@
 package com.itheima.user.service;
 
 import com.itheima.pojo.User;
+import com.itheima.response.UserOrderVO;
 
 import java.util.Map;
 
@@ -22,9 +23,9 @@ public interface UserService {
     /**
      * @description: //TODO 根据主键查询用户信息和用户所有的订单信息
      * @param: [username]
-     * @return: java.util.Map
+     * @return: com.itheima.response.UserOrderVO
      * @author: KyleSun swy0907163@163.com
      */
-    public Map findOrderByUserId(String username);
+    public UserOrderVO findOrderByUserId(String username);
 
 }

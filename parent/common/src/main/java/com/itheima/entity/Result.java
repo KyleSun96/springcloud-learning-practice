@@ -7,7 +7,6 @@ import lombok.ToString;
 import java.io.Serializable;
 
 /**
- * @Program: SpringCloud
  * @ClassName: Result
  * @Description:
  * @Author: KyleSun

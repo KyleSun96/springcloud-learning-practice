@@ -2,16 +2,18 @@ package com.itheima.user.service.impl;
 
 import com.itheima.pojo.Order;
 import com.itheima.pojo.User;
+import com.itheima.response.OrderVO;
+import com.itheima.response.UserOrderVO;
 import com.itheima.user.client.OrderClient;
 import com.itheima.user.mapper.UserMapper;
 import com.itheima.user.service.UserService;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @Description:
@@ -42,11 +44,11 @@ public class UserServiceImpl implements UserService {
     /**
      * @description: //TODO 根据主键查询用户信息和用户所有的订单信息
      * @param: [username]
-     * @return: java.util.Map
+     * @return: com.itheima.response.UserOrderVO
      * @author: KyleSun swy0907163@163.com
      */
     @Override
-    public Map findOrderByUserId(String username) {
+    public UserOrderVO findOrderByUserId(String username) {
 
         // 1 参数校验
         if (StringUtils.isBlank(username)) {
@@ -56,14 +58,26 @@ public class UserServiceImpl implements UserService {
         // 2 业务
         // 2.1 查询用户信息
         User user = this.findUserById(username);
+        if (user == null) {
+            throw new RuntimeException("无当前用户信息");
+        }
+        // 2.2 根据用户名查询订单列表， 基于feign
         List<Order> orderList = (List<Order>) orderClient.findOrdersByUsername(user.getUsername()).getData();
 
         // 3 结果处理封装
-        Map map = new HashMap();
-        map.put("user", user);
-        map.put("orders", orderList);
+        UserOrderVO userOrderVO = new UserOrderVO();
+        // 先将user中的内容赋值过去
+        BeanUtils.copyProperties(user, userOrderVO);
 
-        return map;
+        ArrayList<OrderVO> orderVOList = new ArrayList<>();
+        for (Order order : orderList) {
+            OrderVO orderVO = new OrderVO();
+            BeanUtils.copyProperties(order, orderVO);
+            orderVOList.add(orderVO);
+        }
+        userOrderVO.setOrderList(orderVOList);
+
+        return userOrderVO;
     }
 
 }
