@@ -15,7 +15,7 @@ spring:
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
   application:
-    name: order # 设置当前应用的名称。将来会在eureka中Application显示。将来需要使用该名称来获取路径
+    name: order-server # 设置当前应用的名称。将来会在eureka中Application显示。将来需要使用该名称来获取路径
 
 feign:
   hystrix:

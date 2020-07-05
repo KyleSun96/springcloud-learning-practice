@@ -16,4 +16,4 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   application:
-    name: user # 设置当前应用的名称。将来会在eureka中Application显示。将来需要使用该名称来获取路径
+    name: user-server # 设置当前应用的名称。将来会在eureka中Application显示。将来需要使用该名称来获取路径
