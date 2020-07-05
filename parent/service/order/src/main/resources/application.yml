@@ -17,6 +17,6 @@ spring:
   application:
     name: order-server # 设置当前应用的名称。将来会在eureka中Application显示。将来需要使用该名称来获取路径
 
-feign:
-  hystrix:
-    enabled: true # 开启Feign的熔断功能
+#feign:
+#  hystrix:
+#    enabled: true # 开启Feign的熔断功能
